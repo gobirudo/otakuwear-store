@@ -1,38 +1,118 @@
 const produtos = [
-  { categoria: "shonen", anime: "Naruto Shippuden", nome: "Camiseta Oversized Akatsuki Cloud", desc: "Algodão pesado 100% fio 30.1 com estampa bordada da nuvem vermelha.", preco: "R$ 119,90", img: "img/naruto.svg" },
-  { categoria: "shonen", anime: "Bleach", nome: "Moletom Soul Reaper — Bankai", desc: "Moletom canguru flanelado preto com detalhe minimalista Shinigami.", preco: "R$ 219,90", img: "img/bleach.svg" },
-  { categoria: "shonen", anime: "One Piece", nome: "Camiseta Gear 5 — Chapéu de Palha", desc: "Edição especial Grand Line com estampa frontal em silk de alta definição.", preco: "R$ 109,90", img: "img/onepiece.svg" },
-  { categoria: "shonen", anime: "Dragon Ball Z", nome: "Jaqueta Corta-Vento Capsule Corp", desc: "Impermeável leve com patch oficial da Corporação Cápsula no peito.", preco: "R$ 249,90", img: "img/dragonball.svg" },
-  { categoria: "shojo", anime: "Sailor Moon", nome: "Cropped Crystal Star Brooch", desc: "Modelagem justa em malha canelada premium com detalhe dourado lunar.", preco: "R$ 99,90", img: "img/sailormoon.svg" },
-  { categoria: "shojo", anime: "Sakura Card Captors", nome: "Moletom Pastel Clow Cards", desc: "Rosa pastel com asas bordadas nas mangas e estampa do Báculo Estrelado.", preco: "R$ 229,90", img: "img/sakura.svg" },
-  { categoria: "shojo", anime: "Demon Slayer (Nezuko)", nome: "Camiseta Estampada Kimono Asanoha", desc: "Estampa geométrica tradicional inspirada no kimono da Nezuko Kamado.", preco: "R$ 114,90", img: "img/nezuko.svg" }
+  { id: 1, categoria: "shonen", anime: "Naruto Shippuden", jp: "ナルト疾風伝", nome: "Camiseta Oversized Akatsuki Cloud", desc: "Algodão pesado 100% fio 30.1 com bordado em alto relevo da nuvem vermelha.", preco: 119.90, gradiente: "linear-gradient(135deg, #3b0d11, #991b1b)" },
+  { id: 2, categoria: "shonen", anime: "Bleach", jp: "ブリーチ", nome: "Moletom Soul Reaper — Bankai", desc: "Moletom canguru flanelado preto fosco com estampa minimalista Shinigami.", preco: 219.90, gradiente: "linear-gradient(135deg, #111827, #374151)" },
+  { id: 3, categoria: "shonen", anime: "One Piece", jp: "ワンピース", nome: "Camiseta Gear 5 — Grand Line", desc: "Edição especial Chapéu de Palha com silk de alta definição e gola canelada.", preco: 109.90, gradiente: "linear-gradient(135deg, #0c4a6e, #0284c7)" },
+  { id: 4, categoria: "shonen", anime: "Dragon Ball Z", jp: "ドラゴンボール", nome: "Jaqueta Corta-Vento Capsule Corp", desc: "Impermeável leve com patch oficial da Corporação Cápsula no peito.", preco: 249.90, gradiente: "linear-gradient(135deg, #9a3412, #ea580c)" },
+  { id: 5, categoria: "shojo", anime: "Sailor Moon", jp: "セーラームーン", nome: "Cropped Crystal Star Brooch", desc: "Malha canelada premium com detalhe dourado lunar na gola.", preco: 99.90, gradiente: "linear-gradient(135deg, #581c87, #be185d)" },
+  { id: 6, categoria: "shojo", anime: "Sakura Card Captors", jp: "カードキャプター", nome: "Moletom Pastel Clow Cards", desc: "Rosa pastel com asas bordadas nas mangas e estampa do Báculo Estrelado.", preco: 229.90, gradiente: "linear-gradient(135deg, #be185d, #f472b6)" },
+  { id: 7, categoria: "shojo", anime: "Demon Slayer", jp: "鬼滅の刃", nome: "Camiseta Kimono Asanoha — Nezuko", desc: "Estampa geométrica tradicional inspirada no kimono da Nezuko Kamado.", preco: 114.90, gradiente: "linear-gradient(135deg, #312e81, #7e22ce)" },
+  { id: 8, categoria: "shonen", anime: "Jujutsu Kaisen", jp: "呪術廻戦", nome: "Hoodie Expansão de Domínio", desc: "Modelagem streetwear pesada com estampa nas costas em tinta reagente.", preco: 239.90, gradiente: "linear-gradient(135deg, #1e1b4b, #4338ca)" }
 ];
 
-function renderizarCatalogo() {
-  const shonenGrid = document.getElementById("grid-shonen");
-  const shojoGrid = document.getElementById("grid-shojo");
+let carrinho = [];
 
-  produtos.forEach(p => {
+function formatarMoeda(valor) {
+  return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+}
+
+function renderizarProdutos(filtro = "todos") {
+  const grid = document.getElementById("produtos-grid");
+  grid.innerHTML = "";
+
+  const filtrados = filtro === "todos" ? produtos : produtos.filter(p => p.categoria === filtro);
+
+  filtrados.forEach(p => {
     const isShonen = p.categoria === "shonen";
-    const card = `
-      <div class="card">
-        <div class="art"><img src="${p.img}" alt="${p.nome}"></div>
+    grid.innerHTML += `
+      <article class="card">
+        <div class="card-banner" style="background: ${p.gradiente};">
+          <span class="franchise-pill">${p.anime}</span>
+          <span class="jp-title">${p.jp}</span>
+        </div>
         <div class="card-body">
           <div>
-            <div class="anime-tag ${isShonen ? 'shonen-tag' : 'shojo-tag'}">${p.anime}</div>
+            <div class="cat-label ${isShonen ? 'shonen-color' : 'shojo-color'}">
+              ${isShonen ? '⚔️ Linha Shonen' : '🌙 Linha Shojo'}
+            </div>
             <h3>${p.nome}</h3>
             <p>${p.desc}</p>
           </div>
           <div class="price-row">
-            <span class="price">${p.preco}</span>
-            <button onclick="alert('Adicionado ao carrinho: ${p.nome}')">Comprar</button>
+            <span class="price">${formatarMoeda(p.preco)}</span>
+            <button class="buy-btn" onclick="adicionarCarrinho(${p.id})">+ Carrinho</button>
           </div>
         </div>
-      </div>
+      </article>
     `;
-    if (isShonen) shonenGrid.innerHTML += card;
-    else shojoGrid.innerHTML += card;
   });
 }
 
-document.addEventListener("DOMContentLoaded", renderizarCatalogo);
+function filtrar(categoria, btn) {
+  document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  renderizarProdutos(categoria);
+}
+
+function adicionarCarrinho(id) {
+  const item = produtos.find(p => p.id === id);
+  if (item) {
+    carrinho.push(item);
+    atualizarBadgeCarrinho();
+  }
+}
+
+function removerCarrinho(index) {
+  carrinho.splice(index, 1);
+  atualizarBadgeCarrinho();
+  renderizarModalCarrinho();
+}
+
+function atualizarBadgeCarrinho() {
+  document.getElementById("cart-count").innerText = carrinho.length;
+}
+
+function abrirCarrinho() {
+  renderizarModalCarrinho();
+  document.getElementById("cart-modal").classList.add("open");
+}
+
+function fecharCarrinho() {
+  document.getElementById("cart-modal").classList.remove("open");
+}
+
+function renderizarModalCarrinho() {
+  const lista = document.getElementById("cart-items");
+  const totalEl = document.getElementById("cart-total");
+
+  if (carrinho.length === 0) {
+    lista.innerHTML = `<p style="color: var(--muted); text-align:center; padding: 1.5rem 0;">Seu carrinho está vazio.</p>`;
+    totalEl.innerText = "Total: R$ 0,00";
+    return;
+  }
+
+  let total = 0;
+  lista.innerHTML = carrinho.map((item, idx) => {
+    total += item.preco;
+    return `
+      <div class="cart-item">
+        <span>${item.nome}</span>
+        <div>
+          <strong style="margin-right: 0.6rem;">${formatarMoeda(item.preco)}</strong>
+          <button onclick="removerCarrinho(${idx})" style="background:none;border:none;color:#ff4757;cursor:pointer;font-weight:bold;">✕</button>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  totalEl.innerText = `Total: ${formatarMoeda(total)}`;
+}
+
+function finalizarPedido() {
+  if (carrinho.length === 0) return;
+  alert("Pedido simulado com sucesso! Infraestrutura validada via CI/CD.");
+  carrinho = [];
+  atualizarBadgeCarrinho();
+  fecharCarrinho();
+}
+
+document.addEventListener("DOMContentLoaded", () => renderizarProdutos("todos"));
