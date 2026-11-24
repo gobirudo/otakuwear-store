@@ -1,12 +1,12 @@
 const produtos = [
-  { id: 1, categoria: "shonen", anime: "Naruto Shippuden", nome: "Camiseta Oversized Akatsuki Cloud", desc: "Algodão pesado 100% fio 30.1 com bordado em alto relevo da nuvem vermelha.", preco: 119.90, img: "img/akatsuki.svg" },
-  { id: 2, categoria: "shonen", anime: "Bleach", nome: "Moletom Soul Reaper — Bankai", desc: "Moletom canguru flanelado preto fosco com estampa minimalista Shinigami.", preco: 219.90, img: "img/bleach.svg" },
-  { id: 3, categoria: "shonen", anime: "One Piece", nome: "Camiseta Gear 5 — Grand Line", desc: "Edição especial Chapéu de Palha com silk de alta definição e gola canelada.", preco: 109.90, img: "img/onepiece.svg" },
-  { id: 4, categoria: "shonen", anime: "Dragon Ball Z", nome: "Jaqueta Corta-Vento Capsule Corp", desc: "Impermeável leve com patch oficial da Corporação Cápsula no peito.", preco: 249.90, img: "img/dbz.svg" },
-  { id: 5, categoria: "shojo", anime: "Sailor Moon", nome: "Cropped Crystal Star Brooch", desc: "Malha canelada premium com detalhe dourado lunar na gola.", preco: 99.90, img: "img/sailor.svg" },
-  { id: 6, categoria: "shojo", anime: "Sakura Card Captors", nome: "Moletom Pastel Clow Cards", desc: "Rosa pastel com asas bordadas nas mangas e estampa do Báculo Estrelado.", preco: 229.90, img: "img/sakura.svg" },
-  { id: 7, categoria: "shojo", anime: "Demon Slayer", nome: "Camiseta Kimono Asanoha — Nezuko", desc: "Estampa geométrica tradicional inspirada no kimono da Nezuko Kamado.", preco: 114.90, img: "img/nezuko.svg" },
-  { id: 8, categoria: "shonen", anime: "Jujutsu Kaisen", nome: "Hoodie Expansão de Domínio", desc: "Modelagem streetwear pesada com estampa nas costas em tinta reagente.", preco: 239.90, img: "img/jujutsu.svg" }
+  { id: 1, categoria: "shonen", anime: "Naruto Shippuden", nome: "Camiseta Oversized Akatsuki Cloud", desc: "Algodão pesado 100% fio 30.1 com bordado em alto relevo da nuvem vermelha.", preco: 119.90, img: "img/akatsuki.jpg" },
+  { id: 2, categoria: "shonen", anime: "Bleach", nome: "Moletom Soul Reaper — Bankai", desc: "Moletom canguru flanelado preto fosco com estampa minimalista Shinigami.", preco: 219.90, img: "img/bleach.jpg" },
+  { id: 3, categoria: "shonen", anime: "One Piece", nome: "Camiseta Gear 5 — Grand Line", desc: "Edição especial Chapéu de Palha com silk de alta definição e gola canelada.", preco: 109.90, img: "img/onepiece.jpg" },
+  { id: 4, categoria: "shonen", anime: "Dragon Ball Z", nome: "Jaqueta Corta-Vento Capsule Corp", desc: "Impermeável leve com patch oficial da Corporação Cápsula no peito.", preco: 249.90, img: "img/dbz.jpg" },
+  { id: 5, categoria: "shojo", anime: "Sailor Moon", nome: "Cropped Crystal Star Brooch", desc: "Malha canelada premium com detalhe dourado lunar na gola.", preco: 99.90, img: "img/sailor.jpg" },
+  { id: 6, categoria: "shojo", anime: "Sakura Card Captors", nome: "Moletom Pastel Clow Cards", desc: "Rosa pastel com asas bordadas nas mangas e estampa do Báculo Estrelado.", preco: 229.90, img: "img/sakura.jpg" },
+  { id: 7, categoria: "shojo", anime: "Demon Slayer", nome: "Camiseta Kimono Asanoha — Nezuko", desc: "Estampa geométrica tradicional inspirada no kimono da Nezuko Kamado.", preco: 114.90, img: "img/nezuko.jpg" },
+  { id: 8, categoria: "shonen", anime: "Jujutsu Kaisen", nome: "Hoodie Expansão de Domínio", desc: "Modelagem streetwear pesada com estampa nas costas em tinta reagente.", preco: 239.90, img: "img/jujutsu.jpg" }
 ];
 
 let carrinho = [];
