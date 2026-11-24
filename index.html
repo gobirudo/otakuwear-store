@@ -3,53 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>URBANWEAR | Flagship Store Oficial</title>
+  <title>URBANWEAR | Flagship Store</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="topbar">
-    FRETE GRÁTIS ACIMA DE R$ 249 • USE O CUPOM <u>PRIMEIRA10</u> OU <u>DEVOPS20</u> NO CARRINHO
-  </div>
+  <div class="topbar">FRETE GRÁTIS ACIMA DE R$ 249 • CUPONS: <u>PRIMEIRA10</u> OU <u>DEVOPS20</u></div>
 
   <header>
     <div class="logo">URBAN<span>WEAR</span></div>
-
     <div class="search-box">
       <span>🔍</span>
-      <input type="text" placeholder="Buscar moletons, sneakers, mochilas..." oninput="buscarProdutos(this.value)" />
+      <input type="text" placeholder="Buscar moletons, camisetas, sneakers..." oninput="buscarProdutos(this.value)" />
     </div>
-
     <div class="header-actions">
-      <span class="badge-cicd">● RELEASE v3.0 • CI/CD LIVE</span>
-      <button class="cart-trigger" onclick="abrirDrawer()">
-        🛒 Sacola <span class="cart-badge" id="cart-badge">0</span>
-      </button>
+      <span class="badge-cicd">● RELEASE v3.1 • CI/CD LIVE</span>
+      <button class="cart-trigger" onclick="abrirDrawer()">🛒 Sacola <span class="cart-badge" id="cart-badge">0</span></button>
     </div>
   </header>
 
-  <section class="hero">
-    <span class="hero-tag">COLEÇÃO GLOBAL 2026 • ALTA DISPONIBILIDADE</span>
-    <h1>Streetwear & Techwear de Alta Performance</h1>
-    <p>Peças exclusivas com acabamento premium e entrega contínua automatizada via GitHub, Jenkins e Docker na nuvem Azure.</p>
-
-    <div class="hero-stats">
-      <div class="stat"><strong>+48.000</strong><span>Pedidos Entregues</span></div>
-      <div class="stat"><strong>4.9 ★</strong><span>Avaliação dos Clientes</span></div>
-      <div class="stat"><strong>6x s/ juros</strong><span>No Cartão de Crédito</span></div>
-      <div class="stat"><strong>99.99%</strong><span>Uptime Azure Docker</span></div>
-    </div>
-  </section>
-
   <main class="container">
-    <div class="toolbar">
+    <section class="hero">
+      <div>
+        <h1>Coleção Urban & Techwear 2026</h1>
+        <p>Entrega contínua automatizada via GitHub + Jenkins + Docker na nuvem Azure.</p>
+      </div>
+      <div class="hero-badges">
+        <div><strong>4.9 ★</strong>Avaliação</div>
+        <div><strong>6x s/ juros</strong>No Cartão</div>
+        <div><strong>99.99%</strong>Uptime Azure</div>
+      </div>
+    </section>
+
+    <div class="toolbar" style="margin-top: 1.4rem;">
       <div class="filter-group">
         <button class="filter-btn active" onclick="filtrarCategoria('todos', this)">Todos (12)</button>
         <button class="filter-btn" onclick="filtrarCategoria('masculino', this)">Masculino</button>
         <button class="filter-btn" onclick="filtrarCategoria('feminino', this)">Feminino</button>
-        <button class="filter-btn" onclick="filtrarCategoria('calcados', this)">Sneakers</button>
-        <button class="filter-btn" onclick="filtrarCategoria('acessorios', this)">Acessórios Tech</button>
+        <button class="filter-btn" onclick="filtrarCategoria('gear', this)">Sneakers & Gear</button>
       </div>
-
       <select class="sort-select" onchange="ordenarProdutos(this.value)">
         <option value="destaque">Ordenar: Destaques</option>
         <option value="menor">Menor Preço</option>
@@ -66,17 +57,14 @@
         <h3>🛒 Sua Sacola</h3>
         <button class="close-drawer" onclick="fecharDrawer()">✕</button>
       </div>
-
       <div class="drawer-body" id="drawer-body"></div>
-
       <div class="coupon-row">
         <input type="text" id="coupon-input" placeholder="Cupom (ex: DEVOPS20)" />
         <button onclick="aplicarCupom()">Aplicar</button>
       </div>
-
       <div class="drawer-footer">
         <div class="summary-line"><span>Subtotal</span><span id="sum-subtotal">R$ 0,00</span></div>
-        <div class="summary-line"><span>Desconto Cupom</span><span id="sum-discount" style="color:var(--success);">- R$ 0,00</span></div>
+        <div class="summary-line"><span>Desconto</span><span id="sum-discount" style="color:var(--success);">- R$ 0,00</span></div>
         <div class="summary-line"><span>Frete</span><span id="sum-shipping">GRÁTIS</span></div>
         <div class="summary-total"><span>Total</span><span id="sum-total">R$ 0,00</span></div>
         <button class="checkout-btn" onclick="finalizarCompra()">Finalizar Pedido →</button>
@@ -86,9 +74,7 @@
 
   <div class="toast" id="toast"></div>
 
-  <footer>
-    URBANWEAR Flagship E-Commerce • Arquitetura Cloud Azure (SRV-003) • Esteira CI/CD GitHub + Jenkins + Docker
-  </footer>
+  <footer>URBANWEAR Store • Azure Cloud (SRV-003) • Esteira CI/CD GitHub + Jenkins + Docker</footer>
 
   <script src="app.js"></script>
 </body>
