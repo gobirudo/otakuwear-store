@@ -1,12 +1,12 @@
 const produtos = [
-  { id: 1, categoria: "shonen", anime: "Naruto Shippuden", jp: "ナルト疾風伝", nome: "Camiseta Oversized Akatsuki Cloud", desc: "Algodão pesado 100% fio 30.1 com bordado em alto relevo da nuvem vermelha.", preco: 119.90, gradiente: "linear-gradient(135deg, #3b0d11, #991b1b)" },
-  { id: 2, categoria: "shonen", anime: "Bleach", jp: "ブリーチ", nome: "Moletom Soul Reaper — Bankai", desc: "Moletom canguru flanelado preto fosco com estampa minimalista Shinigami.", preco: 219.90, gradiente: "linear-gradient(135deg, #111827, #374151)" },
-  { id: 3, categoria: "shonen", anime: "One Piece", jp: "ワンピース", nome: "Camiseta Gear 5 — Grand Line", desc: "Edição especial Chapéu de Palha com silk de alta definição e gola canelada.", preco: 109.90, gradiente: "linear-gradient(135deg, #0c4a6e, #0284c7)" },
-  { id: 4, categoria: "shonen", anime: "Dragon Ball Z", jp: "ドラゴンボール", nome: "Jaqueta Corta-Vento Capsule Corp", desc: "Impermeável leve com patch oficial da Corporação Cápsula no peito.", preco: 249.90, gradiente: "linear-gradient(135deg, #9a3412, #ea580c)" },
-  { id: 5, categoria: "shojo", anime: "Sailor Moon", jp: "セーラームーン", nome: "Cropped Crystal Star Brooch", desc: "Malha canelada premium com detalhe dourado lunar na gola.", preco: 99.90, gradiente: "linear-gradient(135deg, #581c87, #be185d)" },
-  { id: 6, categoria: "shojo", anime: "Sakura Card Captors", jp: "カードキャプター", nome: "Moletom Pastel Clow Cards", desc: "Rosa pastel com asas bordadas nas mangas e estampa do Báculo Estrelado.", preco: 229.90, gradiente: "linear-gradient(135deg, #be185d, #f472b6)" },
-  { id: 7, categoria: "shojo", anime: "Demon Slayer", jp: "鬼滅の刃", nome: "Camiseta Kimono Asanoha — Nezuko", desc: "Estampa geométrica tradicional inspirada no kimono da Nezuko Kamado.", preco: 114.90, gradiente: "linear-gradient(135deg, #312e81, #7e22ce)" },
-  { id: 8, categoria: "shonen", anime: "Jujutsu Kaisen", jp: "呪術廻戦", nome: "Hoodie Expansão de Domínio", desc: "Modelagem streetwear pesada com estampa nas costas em tinta reagente.", preco: 239.90, gradiente: "linear-gradient(135deg, #1e1b4b, #4338ca)" }
+  { id: 1, categoria: "shonen", anime: "Naruto Shippuden", nome: "Camiseta Oversized Akatsuki Cloud", desc: "Algodão pesado 100% fio 30.1 com bordado em alto relevo da nuvem vermelha.", preco: 119.90, img: "img/akatsuki.svg" },
+  { id: 2, categoria: "shonen", anime: "Bleach", nome: "Moletom Soul Reaper — Bankai", desc: "Moletom canguru flanelado preto fosco com estampa minimalista Shinigami.", preco: 219.90, img: "img/bleach.svg" },
+  { id: 3, categoria: "shonen", anime: "One Piece", nome: "Camiseta Gear 5 — Grand Line", desc: "Edição especial Chapéu de Palha com silk de alta definição e gola canelada.", preco: 109.90, img: "img/onepiece.svg" },
+  { id: 4, categoria: "shonen", anime: "Dragon Ball Z", nome: "Jaqueta Corta-Vento Capsule Corp", desc: "Impermeável leve com patch oficial da Corporação Cápsula no peito.", preco: 249.90, img: "img/dbz.svg" },
+  { id: 5, categoria: "shojo", anime: "Sailor Moon", nome: "Cropped Crystal Star Brooch", desc: "Malha canelada premium com detalhe dourado lunar na gola.", preco: 99.90, img: "img/sailor.svg" },
+  { id: 6, categoria: "shojo", anime: "Sakura Card Captors", nome: "Moletom Pastel Clow Cards", desc: "Rosa pastel com asas bordadas nas mangas e estampa do Báculo Estrelado.", preco: 229.90, img: "img/sakura.svg" },
+  { id: 7, categoria: "shojo", anime: "Demon Slayer", nome: "Camiseta Kimono Asanoha — Nezuko", desc: "Estampa geométrica tradicional inspirada no kimono da Nezuko Kamado.", preco: 114.90, img: "img/nezuko.svg" },
+  { id: 8, categoria: "shonen", anime: "Jujutsu Kaisen", nome: "Hoodie Expansão de Domínio", desc: "Modelagem streetwear pesada com estampa nas costas em tinta reagente.", preco: 239.90, img: "img/jujutsu.svg" }
 ];
 
 let carrinho = [];
@@ -25,9 +25,9 @@ function renderizarProdutos(filtro = "todos") {
     const isShonen = p.categoria === "shonen";
     grid.innerHTML += `
       <article class="card">
-        <div class="card-banner" style="background: ${p.gradiente};">
+        <div class="card-banner">
           <span class="franchise-pill">${p.anime}</span>
-          <span class="jp-title">${p.jp}</span>
+          <img src="${p.img}" alt="${p.nome}" />
         </div>
         <div class="card-body">
           <div>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220">
+  <defs><radialGradient id="bg5" cx="50%" cy="50%" r="70%"><stop offset="0%" stop-color="#701a75"/><stop offset="100%" stop-color="#1e1b4b"/></radialGradient></defs>
+  <rect width="400" height="220" fill="url(#bg5)"/>
+  <path d="M212,44 A64,64 0 1,0 264,154 A52,52 0 1,1 212,44 Z" fill="#fde047"/>
+  <polygon points="236,78 242,95 260,95 245,106 251,123 236,112 221,123 227,106 212,95 230,95" fill="#f43f5e"/>
+</svg>
