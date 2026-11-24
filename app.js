@@ -1,12 +1,12 @@
 const produtos = [
-  { id: 1, categoria: "shonen", anime: "Naruto Shippuden", nome: "Camiseta Oversized Akatsuki Cloud", desc: "Algodão pesado 100% fio 30.1 com bordado em alto relevo da nuvem vermelha.", preco: 119.90, img: "img/akatsuki.jpg" },
-  { id: 2, categoria: "shonen", anime: "Bleach", nome: "Moletom Soul Reaper — Bankai", desc: "Moletom canguru flanelado preto fosco com estampa minimalista Shinigami.", preco: 219.90, img: "img/bleach.jpg" },
-  { id: 3, categoria: "shonen", anime: "One Piece", nome: "Camiseta Gear 5 — Grand Line", desc: "Edição especial Chapéu de Palha com silk de alta definição e gola canelada.", preco: 109.90, img: "img/onepiece.jpg" },
-  { id: 4, categoria: "shonen", anime: "Dragon Ball Z", nome: "Jaqueta Corta-Vento Capsule Corp", desc: "Impermeável leve com patch oficial da Corporação Cápsula no peito.", preco: 249.90, img: "img/dbz.jpg" },
-  { id: 5, categoria: "shojo", anime: "Sailor Moon", nome: "Cropped Crystal Star Brooch", desc: "Malha canelada premium com detalhe dourado lunar na gola.", preco: 99.90, img: "img/sailor.jpg" },
-  { id: 6, categoria: "shojo", anime: "Sakura Card Captors", nome: "Moletom Pastel Clow Cards", desc: "Rosa pastel com asas bordadas nas mangas e estampa do Báculo Estrelado.", preco: 229.90, img: "img/sakura.jpg" },
-  { id: 7, categoria: "shojo", anime: "Demon Slayer", nome: "Camiseta Kimono Asanoha — Nezuko", desc: "Estampa geométrica tradicional inspirada no kimono da Nezuko Kamado.", preco: 114.90, img: "img/nezuko.jpg" },
-  { id: 8, categoria: "shonen", anime: "Jujutsu Kaisen", nome: "Hoodie Expansão de Domínio", desc: "Modelagem streetwear pesada com estampa nas costas em tinta reagente.", preco: 239.90, img: "img/jujutsu.jpg" }
+  { id: 1, categoria: "masculino", linha: "Essentials", nome: "Moletom Canguru Heavyweight Black", desc: "Algodão 400g peluciado por dentro com modelagem boxy streetwear.", preco: 219.90, img: "img/akatsuki.jpg" },
+  { id: 2, categoria: "masculino", linha: "Minimal", nome: "Sweatshirt Oversized Charcoal", desc: "Moletom careca sem capuz com acabamento lavado e gola canelada dupla.", preco: 189.90, img: "img/bleach.jpg" },
+  { id: 3, categoria: "masculino", linha: "Basics", nome: "Camiseta Premium Fio 30.1 Pima", desc: "Corte reto clássico com toque macio e alta durabilidade.", preco: 99.90, img: "img/onepiece.jpg" },
+  { id: 4, categoria: "masculino", linha: "Outerwear", nome: "Jaqueta Bomber Corta-Vento Urban", desc: "Tecido repelente à água com forro interno respirável e bolsos utilitários.", preco: 279.90, img: "img/dbz.jpg" },
+  { id: 5, categoria: "feminino", linha: "Street Chic", nome: "Conjunto Urban Cropped & Cargo", desc: "Caimento estruturado moderno ideal para composições casuais.", preco: 179.90, img: "img/sailor.jpg" },
+  { id: 6, categoria: "feminino", linha: "Comfort", nome: "Moletom Oversized Off-White", desc: "Malha sustentável de toque suave com ombros deslocados.", preco: 199.90, img: "img/sakura.jpg" },
+  { id: 7, categoria: "feminino", linha: "Studio", nome: "T-Shirt Boxy Cotton Vintage", desc: "Lavagem estonada exclusiva com modelagem solta e confortável.", preco: 109.90, img: "img/nezuko.jpg" },
+  { id: 8, categoria: "masculino", linha: "Drop Exclusivo", nome: "Pack Camisetas Urban Essentials", desc: "Kit versátil com acabamento reforçado para o dia a dia.", preco: 159.90, img: "img/jujutsu.jpg" }
 ];
 
 let carrinho = [];
@@ -22,17 +22,17 @@ function renderizarProdutos(filtro = "todos") {
   const filtrados = filtro === "todos" ? produtos : produtos.filter(p => p.categoria === filtro);
 
   filtrados.forEach(p => {
-    const isShonen = p.categoria === "shonen";
+    const isMasc = p.categoria === "masculino";
     grid.innerHTML += `
       <article class="card">
         <div class="card-banner">
-          <span class="franchise-pill">${p.anime}</span>
+          <span class="franchise-pill">${p.linha}</span>
           <img src="${p.img}" alt="${p.nome}" />
         </div>
         <div class="card-body">
           <div>
-            <div class="cat-label ${isShonen ? 'shonen-color' : 'shojo-color'}">
-              ${isShonen ? '⚔️ Linha Shonen' : '🌙 Linha Shojo'}
+            <div class="cat-label ${isMasc ? 'shonen-color' : 'shojo-color'}">
+              ${isMasc ? 'Masculino & Unissex' : 'Feminino'}
             </div>
             <h3>${p.nome}</h3>
             <p>${p.desc}</p>

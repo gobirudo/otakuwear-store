@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OtakuWear Store | Moda Geek Shonen & Shojo</title>
+  <title>UrbanWear Store | Streetwear & Essentials</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <div class="logo">⚡ OTAKU<span>WEAR</span></div>
+    <div class="logo">URBAN<span>WEAR</span></div>
     <div class="header-right">
-      <span class="badge-version">DEPLOY v2.0 • CI/CD ATIVO</span>
+      <span class="badge-version">DEPLOY v2.1 • CI/CD ATIVO</span>
       <button class="cart-btn" onclick="abrirCarrinho()">
         🛒 Carrinho <span class="cart-count" id="cart-count">0</span>
       </button>
@@ -18,14 +18,14 @@
   </header>
 
   <section class="hero">
-    <h1>Vista o Seu Universo Anime</h1>
-    <p>Coleções exclusivas Shonen & Shojo entregues automaticamente via esteira GitHub + Jenkins + Docker no Azure.</p>
-    <div class="promo-banner">🔥 RELEASE v2.0: Catálogo Interativo + Frete Grátis acima de R$ 199!</div>
+    <h1>Nova Coleção Urban Essentials</h1>
+    <p>Moda contemporânea e streetwear minimalista com entrega automatizada via esteira GitHub + Jenkins + Docker no Azure.</p>
+    <div class="promo-banner">Frete Grátis para todo o Brasil em compras acima de R$ 199</div>
 
     <div class="filters">
-      <button class="filter-btn active" onclick="filtrar('todos', this)">Todos os Animes</button>
-      <button class="filter-btn" onclick="filtrar('shonen', this)">⚔️ Coleção Shonen</button>
-      <button class="filter-btn" onclick="filtrar('shojo', this)">🌙 Coleção Shojo</button>
+      <button class="filter-btn active" onclick="filtrar('todos', this)">Toda a Coleção</button>
+      <button class="filter-btn" onclick="filtrar('masculino', this)">Masculino & Unissex</button>
+      <button class="filter-btn" onclick="filtrar('feminino', this)">Feminino</button>
     </div>
   </section>
 
@@ -36,7 +36,7 @@
   <div class="modal-overlay" id="cart-modal">
     <div class="modal">
       <div class="modal-header">
-        <h3>🛒 Seu Carrinho OtakuWear</h3>
+        <h3>Seu Carrinho UrbanWear</h3>
         <button class="close-btn" onclick="fecharCarrinho()">✕</button>
       </div>
       <div class="cart-items" id="cart-items"></div>
@@ -46,7 +46,7 @@
   </div>
 
   <footer>
-    OtakuWear E-Commerce Lab • Azure Cloud (SRV-003) • Esteira CI/CD Jenkins + Docker
+    UrbanWear E-Commerce Lab • Azure Cloud (SRV-003) • Esteira CI/CD Jenkins + Docker
   </footer>
 
   <script src="app.js"></script>
